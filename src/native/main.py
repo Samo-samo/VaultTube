@@ -25,8 +25,9 @@ DATABASE_FILE_NAME = "vaulttube.db"
 
 class Application:
     def __init__(self):
-        self.system_checks = SystemChecks()
-        self.database = Database(os.path.join(DEFAULT_DATA_DIRECTORY, DATABASE_FILE_NAME))
+        database_path = os.path.join(DEFAULT_DATA_DIRECTORY, DATABASE_FILE_NAME)
+        self.system_checks = SystemChecks(database_path, DEFAULT_DATA_DIRECTORY)
+        self.database = Database(database_path)
         self.queue_manager = QueueManager()
         self.download_engine = DownloadEngine()
         self.file_manager = FileManager()
