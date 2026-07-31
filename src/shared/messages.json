@@ -1,0 +1,15 @@
+{
+  "request": {
+    "command": "string",
+    "params": {}
+  },
+  "response": {
+    "ok": true,
+    "result": {},
+    "error": "string"
+  },
+  "commands": [
+    "system.check",
+    "system.ping"
+  ]
+}

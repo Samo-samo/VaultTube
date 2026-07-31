@@ -10,7 +10,13 @@ import sys
 from database import Database
 from download_engine import DownloadEngine
 from file_manager import DEFAULT_DATA_DIRECTORY, FileManager
-from messaging import read_message, write_message
+from messaging import (
+    error_response,
+    read_message,
+    success_response,
+    validate_request,
+    write_message,
+)
 from queue_manager import QueueManager
 from system_checks import SystemChecks
 
@@ -26,12 +32,19 @@ class Application:
         self.file_manager = FileManager()
         self.commands = {
             "system.check": self.system_checks.run,
+            "system.ping": self.ping,
         }
 
+    def ping(self):
+        return {"message": "pong"}
+
     def dispatch(self, request):
-        handler = self.commands.get(request.get("command"))
+        error = validate_request(request)
+        if error is not None:
+            raise ValueError(error)
+        handler = self.commands.get(request["command"])
         if handler is None:
-            raise ValueError(f"Unknown command: {request.get('command')}")
+            raise ValueError(f"Unknown command: {request['command']}")
         return handler()
 
 
@@ -42,9 +55,9 @@ def main():
         if request is None:
             break
         try:
-            response = {"ok": True, "result": application.dispatch(request)}
+            response = success_response(application.dispatch(request))
         except Exception as error:
-            response = {"ok": False, "error": str(error)}
+            response = error_response(str(error))
         write_message(sys.stdout.buffer, response)
 
 

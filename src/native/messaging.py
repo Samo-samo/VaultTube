@@ -25,3 +25,23 @@ def write_message(stream, message):
     stream.write(struct.pack(_LENGTH_FORMAT, len(payload)))
     stream.write(payload)
     stream.flush()
+
+
+def success_response(result):
+    return {"ok": True, "result": result}
+
+
+def error_response(message):
+    return {"ok": False, "error": message}
+
+
+def validate_request(request):
+    if not isinstance(request, dict):
+        return "Request must be an object."
+    command = request.get("command")
+    if not isinstance(command, str) or not command:
+        return "Request command must be a non-empty string."
+    params = request.get("params", {})
+    if not isinstance(params, dict):
+        return "Request params must be an object."
+    return None
