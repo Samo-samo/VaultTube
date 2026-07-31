@@ -1,13 +1,45 @@
+# Python & Environments
 __pycache__/
-user_data/
-
 *.pyc
+venv/
+.venv/
+env/
+ENV/
+
+# Database
 *.db
+*.sqlite3
+
+# Logs
 *.log
 
-.env
+# IDE & Editors
 .idea/
 .vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
 
-dist/
-build/
+# Environment Variables & Secrets (CRITICAL)
+.env
+.env.local
+.env.*
+secrets.json
+
+# AI & Coding Agent Workspace
+.cline/
+.roo/
+.cursor/
+.aider*
+workspace_state.json
+agent_history/
+ai/
+ai/*
+AI/
+AI/*
+
+# User data & OS files
+user_data/
+.DS_Store
+Thumbs.db
