@@ -38,6 +38,12 @@ ai/
 ai/*
 AI/
 AI/*
+opencode.json
+opencode.jsonc
+AGENTS.md
+CONTEXT.md
+opencode.jsonc.tui-migration.bak
+tui.json
 
 # User data & OS files
 user_data/

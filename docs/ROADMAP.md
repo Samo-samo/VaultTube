@@ -10,7 +10,7 @@ Each phase focuses on completing a specific part of the project's architecture b
 
 ## Phase 0 - Project Planning
 
-Status: Completed (In Progress During Initial Setup)
+Status: Completed
 
 Goals:
 
@@ -193,8 +193,20 @@ Deliverables:
 The following features are intentionally postponed until the core systems are considered stable:
 
 * Automatic update system
-* Installation wizard
+* Automatic installation wizard
+* Browser store distribution support
 * Additional browser support
+* Right-click context menu support
+* Customizable quick menus
+* One-click download mode
+* Download speed limit option
+* Manual cookie support
+* Smart file naming system
+* Folder and disk usage analysis
+* Advanced history system
+* Physical media file deletion options
+* Smart error reporting system
+* VLC media player integration suggestion
 * Advanced media management features
 * Additional export and backup options
 * New download capabilities
